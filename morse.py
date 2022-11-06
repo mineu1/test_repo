@@ -1,4 +1,5 @@
 import streamlit as st
+import googletrans
 
 morsea = ['`ㅊㅁ`ㅍㄴ`ㅈ', '`ㅇ`ㄹㅇ`ㅇ`ㅌㄴ', '`ㅂㄴ`ㅁㄴ`ㅅㄴ', '`ㅁ`ㅊㄴ`ㅅ`ㄲ', '`ㅁㄴ`ㅅㄴ', '`ㅈㅇ`ㅇ`ㅇㄴ', '`ㄱ`ㅇ`ㄱㄴ', '`ㄱ`ㄱㄴ', '`ㄱㅁ`ㅈ`ㅎㄴ', '`ㄱㅁ`ㅉ', '`ㄱㅁ`ㅁㄴ`ㄱㄹ', '`ㅁㄴ`ㄱㅇ`ㅎㄴ', '`ㄱㅁ`ㅅ`ㅎㄴ', '`ㄸㅇ`ㄱ`ㅁㅇ', '`ㅆ`ㄹ`ㅇ`ㅅ', '`ㅅ`ㄲ`ㄷㄹ', '`ㅇㅁ`ㅈ`ㅇ`ㅅ`ㅈ', '`ㄹㄹ`ㄹ`ㅆ`ㄹ', '`ㅇ`ㅊ`ㅅㄴ`ㄱ', '`ㅅㄴ`ㅅㄴ`ㄱ`ㄹ`ㄱ', '`ㄴㅇ`ㄴ', '`ㄷㄹ', '`ㅈㅇ']
 morsaa = ['침팬지', '오랑우탄', '변민선', '미친새끼', '민선', '장애인', '그건', '그건', '김지훈', '김지훈', '김민결', '민경현', '김서현', '똥구멍', '시리어스(serious)', '새끼들', '매장당하니까 사리자', '진짜 미안한데', '그건 선기야', '이선기', '농노', '장애인새끼들', '장애']
@@ -99,6 +100,12 @@ def translate(text):
     return result
 
 
+translator = googletrans.Translator()
 
+st.header("모스부호 번역기")
 box = st.text_input(label="번역할 텍스트를 입력하시오 :")
-st.caption(translate(box))
+st.caption("모스부호 -> 한국어 번역 결과 :")
+st.subheader(translate(box))
+
+st.caption("모스부호 -> 영어 번역 결과 :")
+st.subheader(translator.translate(translate(box), dest='en'))
