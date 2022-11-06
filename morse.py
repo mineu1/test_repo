@@ -107,5 +107,5 @@ box = st.text_input(label="번역할 텍스트를 입력하시오 :")
 st.caption("모스부호 -> 한국어 번역 결과 :")
 st.subheader(translate(box))
 
-st.caption("모스부호 -> 영어 번역 결과 :")
-st.subheader(translator.translate(translate(box), dest='en'))
+st.caption("\n\n\n\n\n made by mineul")
+
